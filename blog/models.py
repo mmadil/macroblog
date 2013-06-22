@@ -8,8 +8,6 @@ class Post(models.Model):
     title = models.CharField('Post Title', max_length=255)
     slug = models.SlugField(max_length=255, blank=True, default='')
     content = models.TextField('Contents (Markup Supported)', blank=True, default='')
-    image = models.URLField('Image URL', max_length=255, blank=True, default='')
-    caption = models.TextField('Caption for the image', max_length=255, blank=True, default='')
     published = models.BooleanField('Do we publish it ?', default=True)
     enable_comments = models.BooleanField('Enable comments for it ?', default=True)
     author = models.ForeignKey(User, related_name="posts")
