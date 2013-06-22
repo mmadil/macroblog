@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Home {% endblock %}
+{% block description %}{% endblock %}
+
+{% block header %}
+<div class="featurette">
+	<img class=" img-circle featurette-image pull-left" src="http://en.gravatar.com/userimage/26126553/d957213dfdd73edb13d3ea98142fe929.jpg?size=220">
+	<h2 class="featurette-heading">
+		<span class="muted">all of this base belongs to </span> Mohammad Adil
+	</h2>
+	<h2 class="featurette-heading">
+		<span class="muted">things you will find here </span> 
+		<p>my profile, projects, blog, and few rants</p>
+	</h2>
+</div>
+{% endblock header %}
+
+{% block quote %}
+<div class="span6 text-center offset3">
+        <blockquote>
+          <p>{{ quotation }}</p>
+          <small class="pull-right">{{ author }}</small>
+        </blockquote>
+</div>
+{% endblock quote %}
+
+{% block content %}
+{% endblock content %}
+
+
