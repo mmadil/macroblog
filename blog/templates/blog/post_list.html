@@ -9,16 +9,12 @@ Blog Posts
 {% endblock %}
 
 {% block content %}
-<ul class="unstyled text-center">
+<ul class="unstyled">
 {% for post in post_list %}
 	<li>
 	{% if post.published %}
 		<h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
-		{% if post.image %}
-		<img src="{{ post.image }}" class="img-rounded">
-		{% else %}
 		<p>{{ post.content|markdown:"safe"|slice:"300" }}</p>
-		{% endif %}
 	{% endif %}
 	</li>
 	<div style="height: 50px;"></div>
