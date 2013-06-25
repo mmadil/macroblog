@@ -1,1 +1,24 @@
 {% extends "base.html" %}
+{% load markup %}
+
+{% block title %} About me {% endblock title%}
+{% block description %}{% endblock %}
+
+{% block header %}
+About me
+{% endblock %}
+
+{% block content %}
+<ul class="unstyled">
+  {% for bio in biodata_list %}
+  <li>
+  {% if bio.published %}
+    <h2>{{ bio.heading }}</h2>
+    <li> {{ bio.content|markdown:"safe" }} </bio>
+  {% endif %}
+  </li>
+  {% empty %}
+  Sorry, There is nothing here now. Check back later.
+  {% endfor %}
+</ul>
+{% endblock %}

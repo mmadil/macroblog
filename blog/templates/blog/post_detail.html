@@ -3,17 +3,12 @@
 {% load markup %}
 
 {% block title %}{{ post.title }}{% endblock %}
-{% block description %}{% endblock %}
+{% block description %}{{ post.content|slice:"100" }}{% endblock %}
 
 {% block header %}{{ post.title }}{% endblock %}
 
 {% block content %}
-{% if post.image %}
-<p><img src="{{ post.image }}" class="img-rounded"></p>
-<p class="text-center">{{ post.caption }}</p>
-{% else %}
 <p>{{ post.content|markdown:"safe" }}</p>
-{% endif %}
 <div style="height: 20px"></div>
 <h2><small>{{ post.created_at }}</small></h2>
 {% endblock %}

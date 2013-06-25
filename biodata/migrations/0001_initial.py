@@ -15,6 +15,7 @@ class Migration(SchemaMigration):
             ('updated_at', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
             ('heading', self.gf('django.db.models.fields.CharField')(max_length=255)),
             ('content', self.gf('django.db.models.fields.TextField')(default='', max_length=500, blank=True)),
+            ('order', self.gf('django.db.models.fields.IntegerField')()),
             ('published', self.gf('django.db.models.fields.BooleanField')(default=True)),
         ))
         db.send_create_signal(u'biodata', ['Biodata'])
@@ -32,6 +33,7 @@ class Migration(SchemaMigration):
             'created_at': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
             'heading': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'order': ('django.db.models.fields.IntegerField', [], {}),
             'published': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
             'updated_at': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'})
         }
