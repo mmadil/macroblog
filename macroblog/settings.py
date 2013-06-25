@@ -19,7 +19,7 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*',]
 
 TIME_ZONE = 'Asia/Kolkata'
 
