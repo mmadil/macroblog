@@ -8,6 +8,7 @@ from . import views
 urlpatterns = patterns('',
     url(r'^$', views.IndexView, name='home'),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^comments/', include('django.contrib.comments.urls')),
     url(r'^blog/', include('blog.urls', namespace='blog')),
     url(r'^about/', include('biodata.urls', namespace='blog')),
 )

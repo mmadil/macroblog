@@ -11,10 +11,15 @@
 <p>{{ post.content|markdown:"safe" }}</p>
 <div style="height: 20px"></div>
 <h2><small>{{ post.created_at }}</small></h2>
-
+<hr>
+<div class="row-fluid">
+  <div class="span12">
+{% get_comment_count for post as comment_count %}
+{% render_comment_list for post %}
+  </div>
 {% get_comment_form for object as form %}
 <div class="span5 offset1">
-<h3>This movie has {{ comment_count }} reviews.</h3>
+<h3>This post has {{ comment_count }} comments.</h3>
 <form action="{% comment_form_target %}" method="POST">
   {% csrf_token %}
   <p>Comment : </p>{{ form.comment }}
@@ -22,11 +27,8 @@
   {{ form.object_pk }}
   {{ form.timestamp }}
   {{ form.security_hash }}
-  {{ movie.movie_id }}
   <input type="hidden" name="next" value="{{ movie.get_absolute_url }}" />
   <button type="submit" class="btn btn-primary"><i class="icon-comment"></i> Submit</button>
 </form>
 </div>
-
-
 {% endblock %}
