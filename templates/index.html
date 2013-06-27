@@ -11,21 +11,19 @@
 	</h2>
 	<h2 class="featurette-heading">
 		<span class="muted">things you will find here </span> 
-		<p>my profile, projects, blog, and few rants</p>
+		<p>my projects, blog, and few rants</p>
 	</h2>
 </div>
 {% endblock header %}
 
 {% block quote %}
-<div class="span6 text-center offset3">
-        <blockquote>
-          <p>{{ quotation }}</p>
-          <small class="pull-right">{{ author }}</small>
-        </blockquote>
+<div class="span10 offset1 featurette">
+  <blockquote>
+    <p>{{ quotation }}</p>
+    <small class="pull-right">{{ author }}</small>
+  </blockquote>
 </div>
 {% endblock quote %}
 
 {% block content %}
 {% endblock content %}
-
-
