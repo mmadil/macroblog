@@ -18,13 +18,14 @@
 {% render_comment_list for post %}
   </div>
 {% get_comment_form for object as form %}
-<div class="span5">
-<h3>This post has {{ comment_count }} comments.</h3>
+<div class="span12">
 <form action="{% comment_form_target %}" method="POST">
   {% csrf_token %}
   {{ form }}
-  <input type="hidden" name="next" value="{{ movie.get_absolute_url }}" />
+  <br>
+  <input type="hidden" name="next" value="{{ post.get_absolute_url }}" />
   <button type="submit" class="btn btn-primary"><i class="icon-comment"></i> Submit</button>
+  <button type="submit" class="btn btn-primary"><i class="icon-cog"></i> Preview</button>
 </form>
 </div>
 {% endblock %}
