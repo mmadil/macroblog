@@ -1,4 +1,5 @@
 from django.conf.urls import patterns, include, url
+from django.views.generic import TemplateView
 from django.contrib import admin
 
 admin.autodiscover()
@@ -14,6 +15,10 @@ urlpatterns = patterns('',
 
 urlpatterns += patterns('',
     url(r'^$', views.IndexView, name='home'),
-    url(r'^about/', BiodataListView.as_view(), name='biolist'),
-    url(r'^projects/', ProjectListView.as_view(), name='projectlist'),
+    url(r'^about/$', BiodataListView.as_view(), name='biolist'),
+    url(r'^projects/$', ProjectListView.as_view(), name='projectlist'),
+)
+
+urlpatterns += patterns('',
+        url(r'^robots.txt$', TemplateView.as_view(template_name="robots.txt", content_type='text/plain')),
 )

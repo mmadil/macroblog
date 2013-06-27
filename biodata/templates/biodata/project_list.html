@@ -1,20 +1,20 @@
 {% extends "base.html" %}
 {% load markup %}
 
-{% block title %} About me {% endblock title%}
+{% block title %} Projects {% endblock title%}
 {% block description %}{% endblock %}
 
 {% block header %}
-About me
+Projects
 {% endblock %}
 
 {% block content %}
 <ul class="unstyled">
-  {% for bio in biodata_list %}
+  {% for project in project_list %}
   <li>
-  {% if bio.published %}
-    <h2>{{ bio.heading }}</h2>
-    <li> {{ bio.content|markdown:"safe" }} </li>
+  {% if project.published %}
+    <h2>{{ project.heading }}</h2>
+    <li> {{ project.content|markdown:"safe" }} </li>
   {% endif %}
   </li>
   {% empty %}
