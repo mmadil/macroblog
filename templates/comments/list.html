@@ -1,0 +1,12 @@
+{% load comments %}
+{% load markup %}
+<div class="span12">
+  {% get_comment_list for post as comment_list %}
+  {% for comment in comment_list %}
+   <blockquote>
+     <p>{{ comment.user_name }}<small class="muted pull-right">{{ comment.submit_date }}</small></p>
+     <p class="lead">{{ comment.comment|markdown:"safe" }}</p>
+   </blockquote>
+  {% endfor %}
+</div>
+
