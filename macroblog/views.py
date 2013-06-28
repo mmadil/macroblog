@@ -30,5 +30,5 @@ def IndexView(request):
     'quotes' and 'quoted_by'.
     """
     quotation, author = choice(quotations)
-    recent_posts = Post.objects.filter(published='True').order_by('-updated_at')[:2]
+    recent_posts = Post.objects.filter(published='True').order_by('-updated_at')[:5]
     return render(request, 'index.html', {'quotation': quotation, 'author': author, 'recent_posts': recent_posts})
