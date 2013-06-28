@@ -28,8 +28,10 @@
 <div class="span12">
   <h2 class="featurette-heading">Recent Posts</h2>
   {% for post in recent_posts %}
+  {% if post.published %}
   <a href="{{ post.get_absolute_url }}"><h3 class="featurette-heading">{{post.title}}</h3></a>
   <p>{{ post.content|markdown:"safe"}}</p>
+  {% endif %}
   {% empty %}
   <p class="text-center">
   Sorry, There is nothing to list here now.
