@@ -18,9 +18,9 @@
 {% endblock header %}
 
 {% block content %}
-<div class="span12" style="padding-bottom:50px;">
+<div class="span10 offset1" style="padding-bottom:50px;">
   <blockquote>
-    <h3>{{ quotation }}</h3>
+    <h3 class="text-info">{{ quotation }}</h3>
     <small class="pull-right">{{ author }}</small>
   </blockquote>
 </div>
@@ -30,6 +30,10 @@
   {% for post in recent_posts %}
   <a href="{{ post.get_absolute_url }}"><h2 class="featurette-heading">{{post.title}}</h2></a>
   <p>{{ post.content|markdown:"safe"}}</p>
-  {% endfor %}
+  {% empty %}
+  <p class="text-center">
+  Sorry, There is nothing to list here now.
+  </p>
+{% endfor %}
 </div>
 {% endblock content %}
