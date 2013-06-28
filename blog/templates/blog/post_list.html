@@ -13,7 +13,7 @@ Blog Posts
 {% for post in post_list %}
 	<li>
 	{% if post.published %}
-		<h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+		<h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
 		<p>{{ post.content|markdown:"safe"|slice:"300" }}</p>
 	{% endif %}
 	</li>
