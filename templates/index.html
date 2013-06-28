@@ -29,8 +29,11 @@
   <h2 class="featurette-heading">Recent Posts</h2>
   {% for post in recent_posts %}
   {% if post.published %}
-  <a href="{{ post.get_absolute_url }}"><h3 class="featurette-heading">{{post.title}}</h3></a>
-  <p>{{ post.content|markdown:"safe"}}</p>
+  <li>
+    <h3><a href="{{ post.get_absolute_url }}">{{post.title}}</a><h3>
+    <p>{{ post.content|markdown:"safe"}}</p>
+    <div style="height: 50px;"></div>
+  </li>
   {% endif %}
   {% empty %}
   <p class="text-center">

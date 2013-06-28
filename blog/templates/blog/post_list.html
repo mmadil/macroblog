@@ -15,7 +15,7 @@ Blog Posts
 	<li>
 		<h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
 		<p>{{ post.content|markdown:"safe"|slice:"300" }}</p>
-	<div style="height: 50px;"></div>
+	  <div style="height: 50px;"></div>
 	</li>
 	{% endif %}
 	{% empty %}
