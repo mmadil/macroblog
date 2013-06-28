@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% load markup %}
 
 {% block title %}Home {% endblock %}
 {% block description %}{% endblock %}
@@ -31,8 +30,7 @@
   {% for post in recent_posts %}
   {% if post.published %}
   <li>
-    <h3><a href="{{ post.get_absolute_url }}">{{post.title}}</a><h3>
-    <p>{{ post.content|markdown:"safe"}}</p>
+    <h3><a href="{{ post.get_absolute_url }}">{{post.title}}</a></h3>
     <div style="height: 50px;"></div>
   </li>
   {% endif %}
