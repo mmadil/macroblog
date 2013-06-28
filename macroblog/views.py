@@ -2,6 +2,9 @@ from django.shortcuts import render
 
 from random import choice
 
+from blog.models import Post
+
+
 # List of pairs (quotation, author).
 quotations = [
     ("Focusing is about saying no.", "Steve Jobs"),
@@ -27,4 +30,5 @@ def IndexView(request):
     'quotes' and 'quoted_by'.
     """
     quotation, author = choice(quotations)
-    return render(request, 'index.html', {'quotation': quotation, 'author': author})
+    recent_posts = Post.objects.all().order_by('updated_at')[:5]
+    return render(request, 'index.html', {'quotation': quotation, 'author': author, 'recent_posts': recent_posts})

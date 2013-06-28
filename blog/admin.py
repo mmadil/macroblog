@@ -3,7 +3,7 @@ from .models import Post
 
 class PostAdmin(admin.ModelAdmin):
     date_hierarchy = 'created_at'
-    fields = ('title','slug','content','published','enable_comments','author')
+    fields = ('title','slug','description','content','published','enable_comments','author')
     list_display = ['published','title', 'author', 'updated_at']
     list_display_links = ['title']
     list_editable = ['published']

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load markup %}
 
 {% block title %}Home {% endblock %}
 {% block description %}{% endblock %}
@@ -16,14 +17,19 @@
 </div>
 {% endblock header %}
 
-{% block quote %}
-<div class="span10 offset1 featurette">
+{% block content %}
+<div class="span12" style="padding-bottom:50px;">
   <blockquote>
-    <p>{{ quotation }}</p>
+    <h3>{{ quotation }}</h3>
     <small class="pull-right">{{ author }}</small>
   </blockquote>
 </div>
-{% endblock quote %}
-
-{% block content %}
+<hr style="width:100%;">
+<div class="span12">
+  <h2 class="featurette-heading">Recent Posts</h2>
+  {% for post in recent_posts %}
+  <a href="{{ post.get_absolute_url }}"><h2 class="featurette-heading">{{post.title}}</h2></a>
+  <p>{{ post.content|markdown:"safe"}}</p>
+  {% endfor %}
+</div>
 {% endblock content %}
