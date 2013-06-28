@@ -27,6 +27,7 @@
 <hr style="width:100%;">
 <div class="span12">
   <h2 class="featurette-heading">Recent Posts</h2>
+  <ul class="unstyled">
   {% for post in recent_posts %}
   {% if post.published %}
   <li>
@@ -40,5 +41,6 @@
   Sorry, There is nothing to list here now.
   </p>
 {% endfor %}
+</ul>
 </div>
 {% endblock content %}

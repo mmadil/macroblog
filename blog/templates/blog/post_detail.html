@@ -8,7 +8,7 @@
 {% block header %}{{ post.title }}{% endblock %}
 
 {% block content %}
-<p>{{ post.content|markdown:"safe" }}</p>
+<p class="text-center">{{ post.content|markdown:"safe" }}</p>
 <hr>
 <h3 class="muted">{{ post.created_at }}</h3>
 <hr>
