@@ -10,7 +10,7 @@
 {% block content %}
 <p>{{ post.content|markdown:"safe" }}</p>
 <hr>
-<h3 class="muted">{{ post.created_at }}</h3>
+<h3 class="muted">{{ post.updated_at }}</h3>
   <div class="row-fluid">
     <div class="span12">
     {% if post.enable_comments %}
