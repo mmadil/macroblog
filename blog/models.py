@@ -14,7 +14,7 @@ class Post(models.Model):
     author = models.ForeignKey(User, related_name="posts")
 
     class Meta:
-        ordering = ['-created_at','title']
+        ordering = ['updated_at','title']
 
     def __unicode__(self):
         return self.title
