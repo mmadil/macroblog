@@ -79,6 +79,7 @@ DJANGO_APPS = (
     'django.contrib.markup',
     'django.contrib.comments',
     'django.contrib.admin',
+    'django.contrib.sitemaps',
 )
 
 THIRD_PARTY_APPS = (
