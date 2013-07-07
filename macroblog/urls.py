@@ -5,6 +5,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 from . import views
+from .sitemaps import sitemaps
 from biodata.views import BiodataListView, ProjectListView
 
 urlpatterns = patterns('',
@@ -25,5 +26,5 @@ urlpatterns += patterns('',
 )
 
 urlpatterns += patterns('',
-        url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', { 'sitemaps': sitemaps})
+        url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', { 'sitemaps': sitemaps}),
 )
