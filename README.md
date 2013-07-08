@@ -8,7 +8,7 @@ Built using :
 + Markdown
 
 
-Quickstart
+# Quickstart
 
 With pip installed and working inside a virtualenv :
 
