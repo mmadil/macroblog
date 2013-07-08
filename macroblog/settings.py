@@ -21,6 +21,23 @@ MANAGERS = ADMINS
 
 ALLOWED_HOSTS = ['*',]
 
+COMMENTS_HIDE_REMOVED = True
+
+# Django Haystack Settings
+
+HAYSTACK_SEARCH_RESULT_PER_PAGE = 10
+
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
+
+HAYSTACK_CONNECTIONS = {
+        'default': {
+                    'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
+                    'URL': 'http://127.0.0.1:9200/',
+                    'INDEX_NAME': 'haystack',
+            },
+}
+
+
 TIME_ZONE = 'Asia/Kolkata'
 
 LANGUAGE_CODE = 'en-us'
