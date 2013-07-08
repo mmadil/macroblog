@@ -29,12 +29,12 @@ HAYSTACK_SEARCH_RESULT_PER_PAGE = 10
 
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 
+
 HAYSTACK_CONNECTIONS = {
-        'default': {
-                    'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
-                    'URL': 'http://0.0.0.0:9200/',
-                    'INDEX_NAME': 'haystack',
-            },
+    'default': {
+        'ENGINE': 'xapian_backend.XapianEngine',
+        'PATH': os.path.join(os.path.dirname(__file__), 'xapian_index'),
+        },
 }
 
 
