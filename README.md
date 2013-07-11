@@ -6,7 +6,8 @@ Built using :
 
 + Django 1.5.1
 + Markdown
-
++ Django Haystack
++ Elasticsearch
 
 # Quickstart
 
