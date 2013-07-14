@@ -28,8 +28,14 @@ few projects, blog posts, and rants
     <small class="pull-right">{{ author }}</small>
   </blockquote>
 </div>
-<div class="span12 clearfix">
-  <h1 class="featurette-heading" style="padding-bottom:50px;">Recent Posts</h1>
+<div>
+  <h1 class="featurette-heading">Recent Posts</h1>
+{% if count > 5 %}
+<h2 class="muted">Showing 5 posts out of {{ count }}.<span class="pull-right"><a href="/blog/">View all</a></span></h2>
+{% else %}
+<h2 class="muted">Showing {{ count }} posts.</h2>
+{% endif %}
+<div style="height: 50px;"></div>
   <ul class="unstyled">
   {% for post in recent_posts %}
   {% if post.published %}

@@ -3,6 +3,7 @@ from django.shortcuts import render
 from random import choice
 
 from blog.models import Post
+from widgets.models import Quote
 
 
 # List of pairs (quotation, author).
@@ -26,9 +27,10 @@ quotations = [
 ]
 
 def IndexView(request):
-    """Pick a random quotation and return a context dictionary with keys
-    'quotes' and 'quoted_by'.
-    """
-    quotation, author = choice(quotations)
+
     recent_posts = Post.objects.filter(published='True').order_by('-updated_at')[:5]
-    return render(request, 'index.html', {'quotation': quotation, 'author': author, 'recent_posts': recent_posts})
+    count = Post.objects.filter(published='True').count()
+    all_quotation = Quote.objects.filter(use_it='True').values_list('quotation','quoted_by')
+    quotation, author = choice(all_quotation)
+    return render(request, 'index.html', {'quotation': quotation, 'author': author, 'recent_posts': recent_posts, 'count': count})
+
