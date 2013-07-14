@@ -31,6 +31,10 @@ def IndexView(request):
     recent_posts = Post.objects.filter(published='True').order_by('-updated_at')[:5]
     count = Post.objects.filter(published='True').count()
     all_quotation = Quote.objects.filter(use_it='True').values_list('quotation','quoted_by')
-    quotation, author = choice(all_quotation)
+    if len(all_quotation) > 0:
+        quotation, author = choice(all_quotation)
+    else:
+        quotation = "If I had eight hours to chop down a tree, I'd spend the first six of them sharpening my axe."
+        author = "Abraham Lincoln"
     return render(request, 'index.html', {'quotation': quotation, 'author': author, 'recent_posts': recent_posts, 'count': count})
 
