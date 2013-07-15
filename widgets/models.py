@@ -11,4 +11,17 @@ class Quote(models.Model):
     def __unicode__(self):
         return self.quotation
 
+class Bookmark(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True, editable=False)
+    updated_at = models.DateTimeField(auto_now=True, editable=False)
+    title = models.CharField('Title', max_length=255)
+    link = models.URLField('URL')
+    description = models.TextField('Description', max_length=255)
+    show = models.BooleanField('Display it ?', default=False)
+
+    class Meta:
+        ordering = ['-updated_at']
+
+    def __unicode__(self):
+        return self.title
 
