@@ -8,20 +8,35 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
+        # Adding model 'Quote'
+        db.create_table(u'widgets_quote', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('quotation', self.gf('django.db.models.fields.TextField')(max_length=255)),
+            ('quoted_by', self.gf('django.db.models.fields.CharField')(max_length=255)),
+            ('use_it', self.gf('django.db.models.fields.BooleanField')(default=False)),
+        ))
+        db.send_create_signal(u'widgets', ['Quote'])
 
-        # Changing field 'Bookmark.created_at'
-        db.alter_column(u'widgets_bookmark', 'created_at', self.gf('django.db.models.fields.DateField')(auto_now_add=True))
+        # Adding model 'Bookmark'
+        db.create_table(u'widgets_bookmark', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('created_at', self.gf('django.db.models.fields.DateField')(auto_now_add=True, blank=True)),
+            ('updated_at', self.gf('django.db.models.fields.DateField')(auto_now=True, blank=True)),
+            ('title', self.gf('django.db.models.fields.CharField')(max_length=255)),
+            ('link', self.gf('django.db.models.fields.URLField')(max_length=200)),
+            ('description', self.gf('django.db.models.fields.TextField')(max_length=255)),
+            ('show', self.gf('django.db.models.fields.BooleanField')(default=False)),
+        ))
+        db.send_create_signal(u'widgets', ['Bookmark'])
 
-        # Changing field 'Bookmark.updated_at'
-        db.alter_column(u'widgets_bookmark', 'updated_at', self.gf('django.db.models.fields.DateField')(auto_now=True))
 
     def backwards(self, orm):
+        # Deleting model 'Quote'
+        db.delete_table(u'widgets_quote')
 
-        # Changing field 'Bookmark.created_at'
-        db.alter_column(u'widgets_bookmark', 'created_at', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True))
+        # Deleting model 'Bookmark'
+        db.delete_table(u'widgets_bookmark')
 
-        # Changing field 'Bookmark.updated_at'
-        db.alter_column(u'widgets_bookmark', 'updated_at', self.gf('django.db.models.fields.DateTimeField')(auto_now=True))
 
     models = {
         u'widgets.bookmark': {
