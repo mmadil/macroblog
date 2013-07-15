@@ -12,8 +12,8 @@ class Quote(models.Model):
         return self.quotation
 
 class Bookmark(models.Model):
-    created_at = models.DateTimeField(auto_now_add=True, editable=False)
-    updated_at = models.DateTimeField(auto_now=True, editable=False)
+    created_at = models.DateField(auto_now_add=True, editable=False)
+    updated_at = models.DateField(auto_now=True, editable=False)
     title = models.CharField('Title', max_length=255)
     link = models.URLField('URL')
     description = models.TextField('Description', max_length=255)
