@@ -31,11 +31,11 @@ few projects, blog posts, and rants
 <div>
   <h1 class="featurette-heading">Recent Posts</h1>
 {% if count > 5 %}
-<h2 class="muted">Showing 5 posts out of {{ count }}.<span class="pull-right"><a href="/blog/">View all</a></span></h2>
+    <h2 class="muted">Showing 5 posts out of {{ count }}.<span class="pull-right"><a href="/blog/">View all</a></span></h2>
 {% else %}
-<h2 class="muted">Showing {{ count }} posts.</h2>
+    <h2 class="muted">Showing {{ count }} posts.</h2>
 {% endif %}
-<div style="height: 50px;"></div>
+  <div style="height: 50px;"></div>
   <ul class="unstyled">
   {% for post in recent_posts %}
   {% if post.published %}
@@ -51,5 +51,24 @@ few projects, blog posts, and rants
   </p>
 {% endfor %}
 </ul>
+</div>
+<h1>Links</h1>
+  <div style="height: 50px;"></div>
+  <ul class="unstyled">
+{% for bookmark in bookmarks %}
+{% if bookmark.show %}
+  <li>
+    <h1><a href="{{ bookmark.link }}">{{ bookmark.title }}</a></h1>
+    <p>{{ bookmark.description }}</p>
+    <div style="height: 50px;"></div>
+  </li>
+{% endif %}
+{% empty %}
+  <p class="text-center">
+  Sorry, There is nothing to list here now.
+  </p>
+{% endfor %}
+</ul>
+<div>
 </div>
 {% endblock content %}
