@@ -3,8 +3,8 @@ from django.db import models
 from django.template.defaultfilters import slugify
 
 class Post(models.Model):
-    created_at = models.DateTimeField(auto_now_add=True, editable=False)
-    updated_at = models.DateTimeField(auto_now=True, editable=False)
+    created_at = models.DateField(auto_now_add=True, editable=False)
+    updated_at = models.DateField(auto_now=True, editable=False)
     title = models.CharField('Post Title', max_length=255)
     slug = models.SlugField(max_length=255, blank=True, default='')
     content = models.TextField('Contents (Markup Supported)', blank=True, default='')
