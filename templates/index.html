@@ -30,10 +30,10 @@ few projects, blog posts, and rants
 </div>
 <div>
   <h1 class="featurette-heading">Recent Posts</h1>
-{% if count > 5 %}
-    <h2 class="muted">Showing 5 posts out of {{ count }}.<span class="pull-right"><a href="/blog/">View all</a></span></h2>
+{% if post_count > 5 %}
+    <h2 class="muted">Showing 5 posts out of {{ post_count }}.<span class="pull-right"><a href="/blog/">View all</a></span></h2>
 {% else %}
-    <h2 class="muted">Showing {{ count }} posts.</h2>
+    <h2 class="muted">Showing {{ post_count }} post.</h2>
 {% endif %}
   <div style="height: 20px;"></div>
   <ul class="unstyled">
@@ -54,6 +54,11 @@ few projects, blog posts, and rants
 </div>
 <div>
 <h1 class="featurette-heading">Good Reads</h1>
+{% if bookmark_count > 5 %}
+    <h2 class="muted">Showing 5 links out of {{ bookmark_count }}.<span class="pull-right"><a href="#">View all</a></span></h2>
+{% else %}
+    <h2 class="muted">Showing {{ bookmark_count }} link.</h2>
+{% endif %}
   <div style="height: 20px;"></div>
   <ul class="unstyled">
 {% for bookmark in bookmarks %}
