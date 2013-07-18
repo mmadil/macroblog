@@ -30,8 +30,8 @@ few projects, blog posts, and rants
 </div>
 <div>
   <h1 class="featurette-heading">Recent Posts</h1>
-{% if post_count > 5 %}
-    <h2 class="muted">Showing 5 posts out of {{ post_count }}.<span class="pull-right"><a href="/blog/">View all</a></span></h2>
+{% if post_count > 2 %}
+    <h2 class="muted">Showing 2 posts out of {{ post_count }}.<span class="pull-right"><a href="/blog/">View all</a></span></h2>
 {% else %}
     <h2 class="muted">Showing {{ post_count }} posts.</h2>
 {% endif %}
@@ -54,8 +54,8 @@ few projects, blog posts, and rants
 </div>
 <div>
 <h1 class="featurette-heading">Good Reads</h1>
-{% if bookmark_count > 5 %}
-    <h2 class="muted">Showing 5 links out of {{ bookmark_count }}.<span class="pull-right"><a href="#">View all</a></span></h2>
+{% if bookmark_count > 2 %}
+    <h2 class="muted">Showing 2 links out of {{ bookmark_count }}.<span class="pull-right"><a href="#">View all</a></span></h2>
 {% else %}
     <h2 class="muted">Showing {{ bookmark_count }} links.</h2>
 {% endif %}
