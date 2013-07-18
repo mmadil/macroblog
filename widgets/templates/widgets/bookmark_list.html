@@ -1,0 +1,14 @@
+{% block 'base.html' %}
+
+{% block title %} Good Reads {% endblock %}
+{% block description %}{% endblock %}
+
+{% block header %}
+Good Reads
+{% endblock %}
+
+{% block content %}
+<ul class="unstyled">
+  {% for bookmark in bookmark_list %}
+  {% if bookmark.show %}
+{% endblock %}
