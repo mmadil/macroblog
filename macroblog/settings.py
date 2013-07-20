@@ -48,6 +48,7 @@ STATICFILES_FINDERS = (
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
+
 SECRET_KEY = 'w5vxm3@i3x0i2&k87c!xjs8p$-%7(7g5ogh0yprk*uh-!58xgf'
 
 TEMPLATE_LOADERS = (
@@ -84,7 +85,6 @@ DJANGO_APPS = (
 
 THIRD_PARTY_APPS = (
     'south',
-    'social_auth',
 )
 
 LOCAL_APPS = (
