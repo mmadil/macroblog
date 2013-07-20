@@ -11,4 +11,16 @@ Good Reads
 <ul class="unstyled">
   {% for bookmark in bookmark_list %}
   {% if bookmark.show %}
-{% endblock %}
+  <li>
+    <h1><a href="{{ bookmark.url }}"></a></h1>
+    <p>{{ bookmark.description }}</p>
+    <div style="height: 20px;"></div>
+  </li>
+  {% endif %}
+  {% empty %}
+    <p class="text-center">
+      Sorry, There is nothing to list here now.
+    </p>
+  {% endfor %}
+</ul>
+{% endblock content %}
