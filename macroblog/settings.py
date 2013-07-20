@@ -84,6 +84,7 @@ DJANGO_APPS = (
 
 THIRD_PARTY_APPS = (
     'south',
+    'social_auth',
 )
 
 LOCAL_APPS = (
