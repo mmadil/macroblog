@@ -10,7 +10,7 @@ def IndexView(request):
     recent_posts = Post.objects.filter(published='True').order_by('-updated_at')[:2]
     post_count = Post.objects.filter(published='True').count()
     bookmarks = Bookmark.objects.filter(show='True').order_by('-updated_at')[:2]
-    bookmark_count = len(bookmarks)
+    bookmark_count = Bookmark.objects.filter(show='True')
     all_quotation = Quote.objects.filter(use_it='True').values_list('quotation','quoted_by')
 
     if len(all_quotation) > 0:
