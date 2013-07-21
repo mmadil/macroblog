@@ -12,7 +12,8 @@ Good Reads
   {% for bookmark in bookmark_list %}
   {% if bookmark.show %}
   <li>
-  <h1><a href="{{ bookmark.url }}" target="_blank">{{ bookmark.title }}</a></h1>
+    <h1><a href="{{ bookmark.url }}" target="_blank">{{ bookmark.title }}</a></h1>
+    <p class="muted">{{ bookmark.updated_at }}</p>
     <p>{{ bookmark.description }}</p>
     <div style="height: 20px;"></div>
   </li>

@@ -41,7 +41,6 @@ few projects, blog posts, and rants
   {% if post.published %}
   <li>
     <h1><a href="{{ post.get_absolute_url }}">{{post.title}}</a></h1>
-    <p class="muted">{{ post.updated_at }}</p>
     <p>{{ post.description }}</p>
     <div style="height: 20px;"></div>
   </li>
@@ -66,7 +65,6 @@ few projects, blog posts, and rants
 {% if bookmark.show %}
   <li>
     <h1><a href="{{ bookmark.link }}" target="_blank">{{ bookmark.title }}</a></h1>
-    <p class="muted">{{ bookmark.updated_at }}</p>
     <p>{{ bookmark.description }}</p>
     <div style="height: 20px;"></div>
   </li>
