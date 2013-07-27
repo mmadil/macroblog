@@ -134,4 +134,66 @@
   clear:both;
 }
 
+.section h2 {
+  font-size: 5em;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.section h3 {
+  font-size: 3em;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.section p {
+  font-size: 2em;
+  font-weight: 300;
+}
+
+.scroll-side {
+  width: 50%;
+  float: left;
+  margin: 0;
+  padding: 3em 4%;
+  overflow: hidden;
+  min-height: 12em;
+}
+
+.scroll-side:before,
+.scroll-side:after {
+  content: " ";
+  display: table;
+}
+
+.scroll-side:after {
+  clear:both;
+}
+
+.right-side {
+  text-align: left;
+}
+
+.left-side {
+  text-align: right;
+}
+
+.scroll-side-init .scroll-side {
+  opacity: 0;
+  -webkit-transition: none;
+  -moz-transition: none;
+  transition: none;
+}
+
+.scroll-side-init .left-side {
+  -webkit-transform: translateX(-80px);
+  -moz-transform: translateXnslateX(-80px);
+  transform: translateX(-80px);
+}
+
+.scroll-side-init .right-side {
+  -webkit-transform: translateX(80px);
+  -moz-transform: translateXnslateX(80px);
+  transform: translateX(80px);
+}
 
