@@ -1,22 +1,114 @@
-
-
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
 
+.icon-grid {
+  font-family: Exo;
+  list-style:none;
+  padding: 0;
+  margin:auto;
+}
 
+.icon-grid:before,
+.icon-grid:after {
+  content: " ";
+  display:table;
+}
 
+.icon-grid:after {
+  clear:both;
+}
 
+.icon-grid li {
+  width: 100%;
+  border-top: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
 
+.icon-grid li:nth-child(1){
+  border-top: none;
+}
 
+.icon-grid li > a {
+  display: block;
+  height: 100%;
+  padding-top:30px;
+  -webkit-transition: background 0.2s;
+  -moz-transition: background 0.2s;
+  transition: background 0.2s;
+}
 
+.icon-grid-icon {
+  padding: 30px 0 0 0;
+  display: block;
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: -moz-transform 0.2s;
+  transition: transform 0.2s;
+}
 
+.icon-grid-icon:before {
+  font-family:Exo;
+  font-size:14em;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialised;
+}
 
+.icon-grid .title {
+  margin: 20px 0 0px 0;
+  padding: 20px 0 0 0;
+  font-size: 2em;
+  position: relative;
+  -webkit-transition: -webkit-transform 0.2s;
+  -moz-transition: -moz-transform 0.2s;
+  transition: transform 0.2s;
+}
 
+.icon-grid .title:before {
+  content: '';
+  position: absolute;
+  background: #47a3da;
+  width: 160px;
+  height: 6px;
+  top: 0px;
+  left: 50%;
+  margin: -10px 0 0 -80px;
+  -webkit-transition: margin-top 0.2s; /* top or translate does not seem to work in Firefox */
+  -moz-transition: margin-top 0.2s;
+  transition: margin-top 0.2s;
+}
 
+.icon-grid li > a:hover {
+  background: #47a3da;
+  text-decoration:none;
+}
 
+.icon-grid li > a:hover .icon-grid-icon {
+  -webkit-transform: translateY(10px);
+  -moz-transform: translateY(10px);
+  -ms-transform: translateY(10px);
+  transform: translateY(10px);
+}
 
+.icon-grid li > a:hover,
+.icon-grid li > a:hover {
+  color: #fff;
+}
 
+.icon-grid li > a:hover .icon-grid .title {
+  -webkit-transform: translateY(-30px);
+  -moz-transform: translateY(-30px);
+  -ms-transform: translateY(-30px);
+  transform: translateY(-30px);
+}
 
+.icon-grid li > a:hover .icon-grid .title:before {
+  background: #fff;
+  margin-top: 80px;
+}
 
 
