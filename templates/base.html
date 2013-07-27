@@ -50,7 +50,7 @@
   </head>
   <body>
   <div class="row-fluid">
-  <div class="span2 text-center navigation">
+  <div class="span3 text-center navigation">
     <div class="span12">
       <ul class="icon-grid unstyled">
         <li>
@@ -80,9 +80,9 @@
       </ul>
     </div>
   </div>
-  <div class="span10">
-    <section class="quote">
-    </section>
+  <div class="span9">
+    {% block content %}
+    {% endblock content %}
   </div>
 </div>
     <script src="{{ STATIC_URL }}js/vendor/jquery-1.9.1.min.js"></script>

@@ -2,10 +2,6 @@
    Author's custom styles
    ========================================================================== */
 
-.navigation {
-  border-right: 1px solid #ddd;
-}
-
 .icon-grid {
   font-family: Exo;
   list-style:none;
@@ -26,7 +22,6 @@
 .icon-grid li {
   width: 100%;
 }
-
 
 .icon-grid li > a {
   display: block;
@@ -103,4 +98,40 @@
   background: #fff;
   margin-top: 80px;
 }
+
+@media (min-width: 770px) {
+  .navigation {
+      border-right: 1px solid #ddd;
+  }
+}
+
+@media (max-width: 770px) {
+
+.navigation li{
+  border-bottom: 1px solid #ddd;
+  }
+}
+
+.scroller {
+  margin-top: 50px;
+  overflow: hidden;
+}
+
+.section {
+  margin-bottom:15em;
+  position:relative;
+}
+
+/* Clear floats of children */
+
+.section:before,
+.section:after {
+  content: " ";
+  display: table;
+}
+
+.section:after {
+  clear:both;
+}
+
 
