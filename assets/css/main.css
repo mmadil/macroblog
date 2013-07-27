@@ -2,6 +2,10 @@
    Author's custom styles
    ========================================================================== */
 
+.navigation {
+  border-right: 1px solid #ddd;
+}
+
 .icon-grid {
   font-family: Exo;
   list-style:none;
@@ -21,13 +25,8 @@
 
 .icon-grid li {
   width: 100%;
-  border-top: 1px solid #ddd;
-  border-right: 1px solid #ddd;
 }
 
-.icon-grid li:nth-child(1){
-  border-top: none;
-}
 
 .icon-grid li > a {
   display: block;
@@ -58,9 +57,9 @@
   -webkit-font-smoothing: antialised;
 }
 
-.icon-grid .title {
-  margin: 20px 0 0px 0;
-  padding: 20px 0 0 0;
+.title {
+  margin: 20px 0 0 0;
+  padding: 20px 0 20px 0;
   font-size: 2em;
   position: relative;
   -webkit-transition: -webkit-transform 0.2s;
@@ -68,7 +67,7 @@
   transition: transform 0.2s;
 }
 
-.icon-grid .title:before {
+.title:before {
   content: '';
   position: absolute;
   background: #47a3da;
@@ -76,7 +75,7 @@
   height: 6px;
   top: 0px;
   left: 50%;
-  margin: -10px 0 0 -80px;
+  margin: 10px 0 0 -80px;
   -webkit-transition: margin-top 0.2s; /* top or translate does not seem to work in Firefox */
   -moz-transition: margin-top 0.2s;
   transition: margin-top 0.2s;
@@ -87,28 +86,21 @@
   text-decoration:none;
 }
 
-.icon-grid li > a:hover .icon-grid-icon {
-  -webkit-transform: translateY(10px);
-  -moz-transform: translateY(10px);
-  -ms-transform: translateY(10px);
-  transform: translateY(10px);
-}
 
 .icon-grid li > a:hover,
 .icon-grid li > a:hover {
   color: #fff;
 }
 
-.icon-grid li > a:hover .icon-grid .title {
+.icon-grid li > a:hover .title {
   -webkit-transform: translateY(-30px);
   -moz-transform: translateY(-30px);
   -ms-transform: translateY(-30px);
   transform: translateY(-30px);
 }
 
-.icon-grid li > a:hover .icon-grid .title:before {
+.icon-grid li > a:hover .title:before {
   background: #fff;
   margin-top: 80px;
 }
-
 
