@@ -15,7 +15,7 @@ few projects, blog posts, and rants
   {% for project in project_list %}
   <li>
   {% if project.published %}
-    <h2>{{ project.heading }}</h2>
+    <h1>{{ project.heading }}</h1>
     <li> {{ project.content|markdown:"safe" }} </li>
   {% endif %}
   </li>

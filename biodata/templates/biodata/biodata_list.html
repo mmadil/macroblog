@@ -14,7 +14,7 @@ few projects, blog posts, and rants
   {% for bio in biodata_list %}
   <li>
   {% if bio.published %}
-    <h2>{{ bio.heading }}</h2>
+    <h1>{{ bio.heading }}</h1>
     <li> {{ bio.content|markdown:"safe" }} </li>
   {% endif %}
   </li>

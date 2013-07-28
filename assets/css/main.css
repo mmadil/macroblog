@@ -81,7 +81,6 @@
   text-decoration:none;
 }
 
-
 .icon-grid li > a:hover,
 .icon-grid li > a:hover {
   color: #fff;
@@ -98,6 +97,7 @@
   background: #fff;
   margin-top: 80px;
 }
+
 .navigation {
   background:white;
 }
@@ -120,19 +120,6 @@ footer {
   margin-bottom:0px;
 }
 
-.content a, footer a {
-  color:white;
-  text-decoration:underline;
-  padding:4px;
-}
-
-.content a:hover, footer a:hover {
-  color: #47a3da;
-  background: white;
-  -webkit-transition: background 0.2s;
-  -moz-transition: background 0.2s;
-  transition: background 0.2s;
-}
 
 hr {
   clear:both;
@@ -146,9 +133,37 @@ hr {
   padding-top:10px;
 }
 
+.active {
+  color:#fff;
+  background:#47a3da;
+
+}
+
+.active .title:before {
+  background:#fff;
+}
+
+.content a, footer a {
+  text-decoration:underline;
+}
+
+
 @media (min-width: 770px) {
   .navigation {
       border-right: 1px solid #47a3da;
+  }
+
+  .content a, footer a {
+    color:white;
+    padding:5px;
+  }
+
+  .content a:hover, footer a:hover {
+    color: #47a3da;
+    background: white;
+    -webkit-transition: background 0.2s;
+    -moz-transition: background 0.2s;
+    transition: background 0.2s;
   }
 }
 

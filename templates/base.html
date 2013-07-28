@@ -1,3 +1,4 @@
+{% load active from macro %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -37,25 +38,25 @@
     <div class="span12">
       <ul class="icon-grid unstyled">
         <li>
-          <a href="/">
+        <a class="{% active request.path '^/$' %}" href="/">
             <span class="icon-grid-icon"><i class="icon-home icon-5x"></i>
             <h3 class="title">Home</h3></span>
           </a>
         </li>
         <li>
-          <a href="/about">
+        <a class="{% active request.path '/about' %}" href="/about">
             <span class="icon-grid-icon"><i class="icon-male icon-5x"></i></span>
             <h3 class="title">About Me</h3>
           </a>
         </li>
         <li>
-          <a href="/blog">
+        <a class="{% active request.path '/blog' %}" href="/blog">
             <span class="icon-grid-icon"><i class="icon-pencil icon-5x"></i></span>
             <h3 class="title">Blog</h3>
           </a>
         </li>
         <li>
-          <a href="/projects">
+        <a class="{% active request.path '/projects' %}" href="/projects">
             <span class="icon-grid-icon"><i class="icon-code icon-5x"></i></span>
             <h3 class="title">Projects</h3>
           </a>
