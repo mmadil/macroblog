@@ -2,14 +2,60 @@
 
 {% block title %}Home {% endblock %}
 
-{% block content %}
-<div class="content">
-  <h1 class="text-center">Rise.</h1>
-  <hr>
-  <blockquote class="span9 offset1">
-    <h3>{{ quotation }}</h3>
-    <p class="pull-right"> - {{ author }}</p>
-  </blockquote>
-</div>
+{% block description %}
+all of this base belongs to
+Mohammad Adil.
+things you will find here -
+few projects, blog posts, and rants
+{% endblock %}
 
+{% block content %}
+<h1 class="text-center">Rise.</h1>
+<hr>
+<div class="spacer">
+<blockquote class="span10 offset1 clearfix">
+  <h3>{{ quotation }}</h3>
+  <p class="pull-right"> - {{ author }}</p>
+</blockquote>
+</div>
+<h1 class="spacer">Recent Posts</h1>
+{% if post_count > 2 %}
+  <h4>Showing 2 posts out of {{ post_count }}.<span class="pull-right"><a href="/blog/">View all</a></span></h4>
+{% else %}
+  <h4>Showing {{ post_count }} posts.</h4>
+{% endif %}
+<ul class="unstyled">
+  {% for post in recent_posts %}
+  {% if post.published %}
+  <li class="spacer-links">
+  <h1><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h1>
+  <p>{{ post.description }}</p>
+  </li>
+  {% endif %}
+  {% empty %}
+  <p class="text-center">
+  Sorry, There is nothing to list here now.
+  </p>
+  {% endfor %}
+</ul>
+<h1 class="spacer">Good Reads</h1>
+{% if bookmark_count > 2 %}
+  <h4>Showing 2 links out of {{ bookmark_count }}.<span class="pull-right"><a href="/bookmarks/">View all</a></span></h4>
+{% else %}
+  <h4>Showing {{ bookmark_count }} links.</h4>
+{% endif %}
+<ul class="unstyled">
+  {% for bookmark in bookmarks %}
+  {% if bookmark.show %}
+  <li class="spacer-links">
+  <h1><a href="{{ bookmark.link }}" target="_blank">{{ bookmark.title }}</a></h1>
+  <p>{{ bookmark.description }}</p>
+  </li>
+  {% endif %}
+  {% empty %}
+  <p class="text-center">
+  Sorry, There is nothing to list here now.
+  </p>
+  {% endfor %}
+</ul>
 {% endblock content %}

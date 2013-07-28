@@ -123,6 +123,7 @@ footer {
 .content a, footer a {
   color:white;
   text-decoration:underline;
+  padding:4px;
 }
 
 .content a:hover, footer a:hover {
@@ -131,6 +132,18 @@ footer {
   -webkit-transition: background 0.2s;
   -moz-transition: background 0.2s;
   transition: background 0.2s;
+}
+
+hr {
+  clear:both;
+}
+
+.spacer {
+  padding-top:20px;
+}
+
+.spacer-links {
+  padding-top:10px;
 }
 
 @media (min-width: 770px) {
@@ -143,6 +156,21 @@ footer {
 
 .navigation li{
   border-bottom: 1px solid #47a3da;
+  }
+
+.icon-grid li {
+  width:50%;
+  float:left;
+  font-size:8px;
+  padding:0px;
+  }
+
+  .title:before {
+  width: 100px;
+  height: 6px;
+  top: 0px;
+  left: 50%;
+  margin: 0px 0 0 -50px;
   }
 }
 

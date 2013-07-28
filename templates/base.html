@@ -16,19 +16,16 @@
       }
 
       /* Exo support added */
-      h1, h2 ,h3 {
+      body {
         font-family: "Exo";
         letter-spacing: 2px;
-      }
-      body {
-        font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-        font-size:100%;
-        line-height:200%;
+        line-height: 100%;
       }
     </style>
     <link href="{{ STATIC_URL }}css/bootstrap-responsive.css" rel="stylesheet">
     <link href="{{ STATIC_URL }}css/font-awesome.min.css" rel="stylesheet">
     <link href="{{ STATIC_URL }}css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Exo:200,300,500,700,900,200italic,300italic,500italic,700italic,900italic" ></link> 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="../assets/js/html5shiv.js"></script>
@@ -69,6 +66,7 @@
   <div class="span8 content">
     {% block content %}
     {% endblock content %}
+    <hr>
 <footer>
   <a class="pull-right" href="/sitemap.xml"><i class="icon-sitemap"></i> Sitemap</a>
   <p>Powered by <a href="https://www.djangoproject.com/">Django</a> with <a href="http://twitter.github.io/bootstrap/">Twitter Bootstrap</a>.</p>
