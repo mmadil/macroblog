@@ -3,7 +3,6 @@
    ========================================================================== */
 
 .icon-grid {
-  font-family: Exo;
   list-style:none;
   padding: 0;
   margin:auto;
@@ -41,7 +40,6 @@
 }
 
 .icon-grid-icon:before {
-  font-family:Exo;
   font-size:14em;
   speak: none;
   font-style: normal;
@@ -53,6 +51,7 @@
 }
 
 .title {
+  font-family: Exo;
   margin: 20px 0 0 0;
   padding: 20px 0 20px 0;
   font-size: 2em;
@@ -102,14 +101,6 @@
   background:white;
 }
 
-body {
-  font-family: "Exo";
-  letter-spacing: 2px;
-  background:#47a3da;
-  color:white;
-  line-height:200%;
-  padding-bottom: 40px;
-}
 
 .content {
   padding-top: 20px;
@@ -151,6 +142,14 @@ hr {
   text-decoration:underline;
 }
 
+body {
+  font-family: "Exo";
+  letter-spacing: 2px;
+  background:#47a3da;
+  color:white;
+  line-height:200%;
+  padding-bottom: 40px;
+}
 
 @media (min-width: 770px) {
   .navigation {
