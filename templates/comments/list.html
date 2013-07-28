@@ -4,7 +4,7 @@
   {% get_comment_list for post as comment_list %}
   {% for comment in comment_list %}
    <blockquote>
-     <h3>{{ comment.user_name }}<small class="muted pull-right">{{ comment.submit_date }}</small></h3>
+     <h3>{{ comment.user_name }}<p class="pull-right">{{ comment.submit_date }}</p></h3>
      <p class="lead">{{ comment.comment|markdown:"safe" }}</p>
    </blockquote>
   {% endfor %}

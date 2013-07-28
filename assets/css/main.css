@@ -1,22 +1,176 @@
-
-
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
 
+.icon-grid {
+  font-family: Exo;
+  list-style:none;
+  padding: 0;
+  margin:auto;
+}
+
+.icon-grid:before,
+.icon-grid:after {
+  content: " ";
+  display:table;
+}
+
+.icon-grid:after {
+  clear:both;
+}
+
+.icon-grid li {
+  width: 100%;
+}
+
+.icon-grid li > a {
+  display: block;
+  height: 100%;
+  padding-top:30px;
+  -webkit-transition: background 0.2s;
+  -moz-transition: background 0.2s;
+  transition: background 0.2s;
+}
+
+.icon-grid-icon {
+  padding: 30px 0 0 0;
+  display: block;
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: -moz-transform 0.2s;
+  transition: transform 0.2s;
+}
+
+.icon-grid-icon:before {
+  font-family:Exo;
+  font-size:14em;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialised;
+}
+
+.title {
+  margin: 20px 0 0 0;
+  padding: 20px 0 20px 0;
+  font-size: 2em;
+  position: relative;
+  -webkit-transition: -webkit-transform 0.2s;
+  -moz-transition: -moz-transform 0.2s;
+  transition: transform 0.2s;
+}
+
+.title:before {
+  content: '';
+  position: absolute;
+  background: #47a3da;
+  width: 160px;
+  height: 6px;
+  top: 0px;
+  left: 50%;
+  margin: 10px 0 0 -80px;
+  -webkit-transition: margin-top 0.2s;
+  -moz-transition: margin-top 0.2s;
+  transition: margin-top 0.2s;
+}
+
+.icon-grid li > a:hover {
+  background: #47a3da;
+  text-decoration:none;
+}
 
 
+.icon-grid li > a:hover,
+.icon-grid li > a:hover {
+  color: #fff;
+}
 
+.icon-grid li > a:hover .title {
+  -webkit-transform: translateY(-30px);
+  -moz-transform: translateY(-30px);
+  -ms-transform: translateY(-30px);
+  transform: translateY(-30px);
+}
 
+.icon-grid li > a:hover .title:before {
+  background: #fff;
+  margin-top: 80px;
+}
+.navigation {
+  background:white;
+}
 
+body {
+  background:#47a3da;
+  color:white;
+}
 
+.content {
+  padding-top: 20px;
+}
 
+.content a {
+  color:white;
+}
 
+footer {
+  clear:both;
+  margin-bottom:0px;
+}
 
+.content a, footer a {
+  color:white;
+  text-decoration:underline;
+  padding:4px;
+}
 
+.content a:hover, footer a:hover {
+  color: #47a3da;
+  background: white;
+  -webkit-transition: background 0.2s;
+  -moz-transition: background 0.2s;
+  transition: background 0.2s;
+}
 
+hr {
+  clear:both;
+}
 
+.spacer {
+  padding-top:20px;
+}
 
+.spacer-links {
+  padding-top:10px;
+}
 
+@media (min-width: 770px) {
+  .navigation {
+      border-right: 1px solid #47a3da;
+  }
+}
 
+@media (max-width: 770px) {
+
+.navigation li{
+  border-bottom: 1px solid #47a3da;
+  }
+
+.icon-grid li {
+  width:50%;
+  float:left;
+  font-size:8px;
+  padding:0px;
+  }
+
+  .title:before {
+  width: 100px;
+  height: 6px;
+  top: 0px;
+  left: 50%;
+  margin: 0px 0 0 -50px;
+  }
+}
 

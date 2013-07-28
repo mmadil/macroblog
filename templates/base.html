@@ -12,101 +12,69 @@
     <link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
       body {
-        padding-top: 20px;
         padding-bottom: 40px;
       }
 
-      /* Custom container */
-      .container-narrow {
-        margin: 0 auto;
-        max-width: 700px;
-      }
-      .container-narrow > hr {
-        margin: 30px 0;
-      }
-
-      /* Main marketing message and sign up button */
-      .jumbotron {
-        margin: 60px 0;
-        text-align: center;
-      }
-      .jumbotron h1 {
-        font-size: 72px;
-        line-height: 1;
-      }
-      .jumbotron .btn {
-        font-size: 21px;
-        padding: 14px 24px;
-      }
-
-      /* Supporting marketing content */
-      .marketing {
-        margin: 60px 0;
-      }
-      .marketing p + h4 {
-        margin-top: 28px;
-      }
-
       /* Exo support added */
-      h1, h2 {
+      body {
         font-family: "Exo";
         letter-spacing: 2px;
-      }
-      body {
-        font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-        font-size:100%;
-        line-height:200%;
+        line-height: 100%;
       }
     </style>
     <link href="{{ STATIC_URL }}css/bootstrap-responsive.css" rel="stylesheet">
     <link href="{{ STATIC_URL }}css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Exo:200,300,500,700,900,200italic,300italic,500italic,700italic,900italic" ></link> 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="../assets/js/html5shiv.js"></script>
     <![endif]-->
-    <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-31663137-1']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-    </script>
   </head>
   <body>
-    <div class="span4 pull-left text-left">
-        <ul class="nav nav-list">
-          <li><h1><a href="/"><i class="icon-home"></i> Home</a></h1></li>
-          <li><h1><a href="/about/"><i class="icon-male"></i> About Me</a></h1></li>
-          <li><h1><a href="/blog/"><i class="icon-pencil"></i> Blog</a></h1></li>
-          <li><h1><a href="/projects/"><i class="icon-code"></i> Projects</a></h1></li>
-        </ul>
+  <div class="row-fluid">
+  <div class="span3 text-center navigation">
+    <div class="span12">
+      <ul class="icon-grid unstyled">
+        <li>
+          <a href="/">
+            <span class="icon-grid-icon"><i class="icon-home icon-5x"></i>
+            <h3 class="title">Home</h3></span>
+          </a>
+        </li>
+        <li>
+          <a href="/about">
+            <span class="icon-grid-icon"><i class="icon-male icon-5x"></i></span>
+            <h3 class="title">About Me</h3>
+          </a>
+        </li>
+        <li>
+          <a href="/blog">
+            <span class="icon-grid-icon"><i class="icon-pencil icon-5x"></i></span>
+            <h3 class="title">Blog</h3>
+          </a>
+        </li>
+        <li>
+          <a href="/projects">
+            <span class="icon-grid-icon"><i class="icon-code icon-5x"></i></span>
+            <h3 class="title">Projects</h3>
+          </a>
+        </li>
+      </ul>
     </div>
-    <div class="container-narrow">
-      <div class="masthead">
-        <h2 class="muted text-center">Rise.</h2>
-      </div>
-      <hr>
-      <div class="jumbotron">
-    	    <h1>{% block header %}{% endblock header%}</h1>
-    	    <p class="lead">{% block messages %}{% endblock messages%}</p>
-  	  </div>
-      <hr>
-      <div class="row-fluid">
-      	{% block content %}
-        {% endblock content %}
-      </div>
-      <hr>
-      <div class="footer">
-        <a class="pull-right" href="/sitemap.xml"><i class="icon-sitemap"></i> Sitemap</a>
-        <p class=" muted">Powered by <a href="https://www.djangoproject.com/">Django</a> with <a href="http://twitter.github.io/bootstrap/">Twitter Bootstrap</a>.</p>
-      </div>
-    </div> <!-- /container -->
+  </div>
+  <div class="span8 content">
+    {% block content %}
+    {% endblock content %}
+    <hr>
+<footer>
+  <a class="pull-right" href="/sitemap.xml"><i class="icon-sitemap"></i> Sitemap</a>
+  <p>Powered by <a href="https://www.djangoproject.com/">Django</a> with <a href="http://twitter.github.io/bootstrap/">Twitter Bootstrap</a>.</p>
+</footer>
+  </div>
+</div>
     <script src="{{ STATIC_URL }}js/vendor/jquery-1.9.1.min.js"></script>
+    <script src="{{ STATIC_URL }}js/main.js"></script>
     <script src="{{ STATIC_URL }}js/application.js"></script>
   </body>
 </html>

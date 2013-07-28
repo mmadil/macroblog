@@ -4,9 +4,9 @@
 
 {% block title %}Preview your comment{% endblock %}
 
-{% block header %}Preview your comment{% endblock %}
 
 {% block content %}
+<h1>Preview your comment</h1>
 <div class="row-fluid">
   <div class="span5">
   <form action="{% comment_form_target %}" method="post">{% csrf_token %}
