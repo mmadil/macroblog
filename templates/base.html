@@ -29,22 +29,10 @@
     <link href="{{ STATIC_URL }}css/bootstrap-responsive.css" rel="stylesheet">
     <link href="{{ STATIC_URL }}css/font-awesome.min.css" rel="stylesheet">
     <link href="{{ STATIC_URL }}css/main.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Exo:200,300,500,700,900,200italic,300italic,500italic,700italic,900italic" ></link> 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="../assets/js/html5shiv.js"></script>
     <![endif]-->
-    <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-31663137-1']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-    </script>
   </head>
   <body>
   <div class="row-fluid">
@@ -78,9 +66,13 @@
       </ul>
     </div>
   </div>
-  <div class="span9">
+  <div class="span8 content">
     {% block content %}
     {% endblock content %}
+<footer>
+  <a class="pull-right" href="/sitemap.xml"><i class="icon-sitemap"></i> Sitemap</a>
+  <p>Powered by <a href="https://www.djangoproject.com/">Django</a> with <a href="http://twitter.github.io/bootstrap/">Twitter Bootstrap</a>.</p>
+</footer>
   </div>
 </div>
     <script src="{{ STATIC_URL }}js/vendor/jquery-1.9.1.min.js"></script>
