@@ -23,23 +23,6 @@
   width: 100%;
 }
 
-.icon-grid li > a {
-  display: block;
-  height: 100%;
-  padding-top:30px;
-  -webkit-transition: background 0.2s;
-  -moz-transition: background 0.2s;
-  transition: background 0.2s;
-}
-
-.icon-grid-icon {
-  padding: 30px 0 0 0;
-  display: block;
-  -webkit-transition: -webkit-transform 0.2s;
-  transition: -moz-transform 0.2s;
-  transition: transform 0.2s;
-}
-
 .icon-grid-icon:before {
   font-family:Exo;
   font-size:14em;
@@ -166,6 +149,23 @@ hr {
     -moz-transition: background 0.2s;
     transition: background 0.2s;
   }
+
+  .icon-grid li > a {
+    display: block;
+    height: 100%;
+    padding-top:30px;
+    -webkit-transition: background 0.2s;
+    -moz-transition: background 0.2s;
+    transition: background 0.2s;
+  }
+
+  .icon-grid-icon {
+    padding: 30px 0 0 0;
+    display: block;
+    -webkit-transition: -webkit-transform 0.2s;
+    transition: -moz-transform 0.2s;
+    transition: transform 0.2s;
+  }
 }
 
 @media (max-width: 770px) {
@@ -188,5 +188,14 @@ hr {
   left: 50%;
   margin: 0px 0 0 -50px;
   }
-}
 
+  .content a:hover, footer a:hover {
+    color: #47a3da;
+    background: white;
+  }
+  .icon-grid li > a {
+    display: block;
+    height: 100%;
+    padding-top:30px;
+  }
+}
