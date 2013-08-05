@@ -29,7 +29,7 @@ class Gallery(models.Model):
     created_at = models.DateField(auto_now_add=True, editable=False)
     updated_at = models.DateField(auto_now=True, editable=False)
     title = models.CharField('Title', max_length=255)
-    link = models.CharField('Name of the Image ?')
+    link = models.CharField('Name of the Image ?',max_length=50)
     description = models.TextField('Description', max_length=255)
     show = models.BooleanField('Display it ?', default=False)
 
