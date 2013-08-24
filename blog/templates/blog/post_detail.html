@@ -5,20 +5,21 @@
 {% block title %}{{ post.title }}{% endblock %}
 {% block description %}{{ post.description }}{% endblock %}
 
-{% block header %}{{ post.title }}{% endblock %}
 
 {% block content %}
-<p>{{ post.content|markdown:"safe" }}</p>
+<h1 class="text-center">{{ post.title }}</h1>
+<div class="spacer"></div>
+<p>{{ post.content|markdown }}</p>
 <hr>
-<h3 class="muted">{{ post.updated_at }}</h3>
+<h2>{{ post.updated_at }}</h2>
   <div class="row-fluid">
     <div class="span12">
     {% if post.enable_comments %}
-    <h3>Comments </h3>
+    <h2>Comments </h2>
     {% render_comment_list for post %}
     </div>
     {% get_comment_form for object as form %}
-    <h3>Add comment <small>(with markdown support)</small></h3>
+    <h2>Add comment (with markdown support)</h2>
   <div class="span5">
   <form action="{% comment_form_target %}" method="POST">
     {% csrf_token %}

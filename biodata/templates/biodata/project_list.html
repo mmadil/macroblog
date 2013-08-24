@@ -2,6 +2,7 @@
 {% load markup %}
 
 {% block title %} Projects {% endblock title%}
+
 {% block description %}
 all of this base belongs to 
 Mohammad Adil.
@@ -9,16 +10,12 @@ things you will find here -
 few projects, blog posts, and rants
 {% endblock %}
 
-{% block header %}
-Projects
-{% endblock %}
-
 {% block content %}
 <ul class="unstyled">
   {% for project in project_list %}
   <li>
   {% if project.published %}
-    <h2>{{ project.heading }}</h2>
+    <h1>{{ project.heading }}</h1>
     <li> {{ project.content|markdown:"safe" }} </li>
   {% endif %}
   </li>

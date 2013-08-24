@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %} Good Reads {% endblock %}
+{% block description %}{% endblock %}
+
+{% block content %}
+<ul class="unstyled">
+  {% for bookmark in bookmark_list %}
+  {% if bookmark.show %}
+  <li>
+    <h1><a href="{{ bookmark.url }}" target="_blank">{{ bookmark.title }}</a></h1>
+    <p>{{ bookmark.updated_at }}</p>
+    <p>{{ bookmark.description }}</p>
+    <div style="height: 20px;"></div>
+  </li>
+  {% endif %}
+  {% empty %}
+    <p class="text-center">
+      Sorry, There is nothing to list here now.
+    </p>
+  {% endfor %}
+</ul>
+{% endblock content %}

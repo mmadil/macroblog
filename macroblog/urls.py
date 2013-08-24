@@ -7,6 +7,7 @@ admin.autodiscover()
 from . import views
 from .sitemaps import sitemaps
 from biodata.views import BiodataListView, ProjectListView
+from widgets.views import BookmarkListView
 
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
@@ -19,6 +20,7 @@ urlpatterns += patterns('',
     url(r'^blog/', include('blog.urls', namespace='blog')),
     url(r'^about/$', BiodataListView.as_view(), name='biolist'),
     url(r'^projects/$', ProjectListView.as_view(), name='projectlist'),
+    url(r'^bookmarks/$', BookmarkListView.as_view(), name='bookmarklist'),
 )
 
 urlpatterns += patterns('',

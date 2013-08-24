@@ -3,13 +3,13 @@ from django.db import models
 from django.template.defaultfilters import slugify
 
 class Post(models.Model):
-    created_at = models.DateTimeField(auto_now_add=True, editable=False)
-    updated_at = models.DateTimeField(auto_now=True, editable=False)
+    created_at = models.DateField(auto_now_add=True, editable=False)
+    updated_at = models.DateField(auto_now=True, editable=False)
     title = models.CharField('Post Title', max_length=255)
     slug = models.SlugField(max_length=255, blank=True, default='')
     content = models.TextField('Contents (Markup Supported)', blank=True, default='')
     description = models.TextField('Description', blank=True, default='')
-    published = models.BooleanField('Do we publish it ?', default=True)
+    published = models.BooleanField('Do we publish it ?', default=False)
     enable_comments = models.BooleanField('Enable comments for it ?', default=True)
     author = models.ForeignKey(User, related_name="posts")
 

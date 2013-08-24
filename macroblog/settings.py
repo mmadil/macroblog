@@ -86,6 +86,16 @@ ROOT_URLCONF = 'macroblog.urls'
 
 WSGI_APPLICATION = 'macroblog.wsgi.application'
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    #'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.request',
+    'django.contrib.messages.context_processors.messages',
+    'django.core.context_processors.static',
+)
+
 DJANGO_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -107,6 +117,7 @@ THIRD_PARTY_APPS = (
 LOCAL_APPS = (
     'blog',
     'biodata',
+    'widgets',
 )
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
@@ -143,7 +154,6 @@ LOGGING = {
 import dj_database_url
 
 DATABASES = {'default': dj_database_url.config()}
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 try:
     from local_settings import *
