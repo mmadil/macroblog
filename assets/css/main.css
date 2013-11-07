@@ -2,8 +2,12 @@
    Author's custom styles
    ========================================================================== */
 
+body {
+  background:#47a3da;
+  color:white;
+}
+
 .icon-grid {
-  font-family: Exo;
   list-style:none;
   padding: 0;
   margin:auto;
@@ -24,7 +28,6 @@
 }
 
 .icon-grid-icon:before {
-  font-family:Exo;
   font-size:14em;
   speak: none;
   font-style: normal;
@@ -36,6 +39,7 @@
 }
 
 .title {
+  font-family: Exo;
   margin: 20px 0 0 0;
   padding: 20px 0 20px 0;
   font-size: 2em;
@@ -60,13 +64,9 @@
 }
 
 .icon-grid li > a:hover {
+  color: #fff;
   background: #47a3da;
   text-decoration:none;
-}
-
-.icon-grid li > a:hover,
-.icon-grid li > a:hover {
-  color: #fff;
 }
 
 .icon-grid li > a:hover .title {
@@ -85,13 +85,10 @@
   background:white;
 }
 
-body {
-  background:#47a3da;
-  color:white;
-  line-height:200%;
-}
-
 .content {
+  font-family: Exo;
+  font-size:20px;
+  line-height:1.3;
   padding-top: 20px;
 }
 
@@ -120,7 +117,6 @@ hr {
 .active {
   color:#fff;
   background:#47a3da;
-
 }
 
 .active .title:before {
@@ -139,7 +135,7 @@ hr {
 
   .content a, footer a {
     color:white;
-    padding:5px;
+    padding:3px;
   }
 
   .content a:hover, footer a:hover {
@@ -199,3 +195,4 @@ hr {
     padding-top:30px;
   }
 }
+
