@@ -9,7 +9,7 @@
 	{% if post.published %}
 	<li>
 		<h1><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h1>
-    <p>{{ post.updated_at }}</p>
+    <p>{{ post.updated_at }} by {{ post.author.get_full_name }}</p>
     <p>{{ post.description }}</p>
 	  <div class="spacer-links"></div>
 	</li>

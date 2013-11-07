@@ -8,10 +8,12 @@
 
 {% block content %}
 <h1 class="text-center">{{ post.title }}</h1>
+<p class="text-center">
+<small>{{ post.updated_at }} - {{ post.author.get_full_name }}</small>
+</p>
 <div class="spacer"></div>
 <p>{{ post.content|markdown }}</p>
 <hr>
-<h2>{{ post.updated_at }}</h2>
   <div class="row-fluid">
     <div class="span12">
     {% if post.enable_comments %}
