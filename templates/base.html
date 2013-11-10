@@ -12,12 +12,9 @@
     <!-- Le styles -->
     <link href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
-      body {
-        padding-bottom: 40px;
-      }
-
       /* Exo support added */
       body {
+        padding-bottom:2px;
         font-family: "Exo";
       }
     </style>
@@ -29,17 +26,6 @@
     <!--[if lt IE 9]>
       <script src="../assets/js/html5shiv.js"></script>
     <![endif]-->
-    <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-31663137-1']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-    </script>
   </head>
   <body>
   <div class="row-fluid">
@@ -59,31 +45,56 @@
           </a>
         </li>
         <li>
+        <a class="{% active request.path '/projects' %}" href="/projects">
+            <span class="icon-grid-icon"><i class="icon-code icon-5x"></i></span>
+            <h3 class="title">Projects</h3>
+          </a>
+        </li>
+        <li>
         <a class="{% active request.path '/blog' %}" href="/blog">
             <span class="icon-grid-icon"><i class="icon-pencil icon-5x"></i></span>
             <h3 class="title">Blog</h3>
           </a>
         </li>
         <li>
-        <a class="{% active request.path '/projects' %}" href="/projects">
-            <span class="icon-grid-icon"><i class="icon-code icon-5x"></i></span>
-            <h3 class="title">Projects</h3>
+        <a class="{% active request.path '/thoughts' %}" href="#">
+            <span class="icon-grid-icon"><i class="icon-twitter icon-5x"></i></span>
+            <h3 class="title">@xcerti</h3>
+          </a>
+        </li>
+        <li>
+        <a class="{% active request.path '/gallery' %}" href="#">
+            <span class="icon-grid-icon"><i class="icon-camera icon-5x"></i></span>
+            <h3 class="title">Gallery</h3>
           </a>
         </li>
       </ul>
     </div>
   </div>
-  <div class="span8 content">
+  <div class="span7 content">
     {% block content %}
     {% endblock content %}
     <hr>
 <footer>
-  <a class="pull-right" href="/sitemap.xml"><i class="icon-sitemap"></i> Sitemap</a>
+  <a class="pull-right clear-fix" href="/sitemap.xml"><i class="icon-sitemap"></i> Sitemap </a>
+  <a class="pull-right" href="#"><i class="icon-white icon-comments"></i> Contact Me </a>
+  <p>Made with <i class="icon-heart"></i>. Uses Django + Heroku + Bootstrap + Twitter + Flikr.</p>
 </footer>
   </div>
 </div>
     <script src="{{ STATIC_URL }}js/vendor/jquery-1.9.1.min.js"></script>
     <script src="{{ STATIC_URL }}js/main.js"></script>
     <script src="{{ STATIC_URL }}js/application.js"></script>
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-31663137-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
   </body>
 </html>
