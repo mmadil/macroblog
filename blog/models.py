@@ -2,7 +2,6 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.template.defaultfilters import slugify
 
-
 class PublishedPost(models.Manager):
     def get_query_set(self):
         return super(PublishedPost, self).get_query_set().filter(published=True)
@@ -61,7 +60,4 @@ class Tweet(models.Model):
     def __unicode__(self):
         return self.content
 
-
-class Flikr(models.Model):
-    pass
 

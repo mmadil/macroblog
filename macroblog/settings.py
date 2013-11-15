@@ -90,6 +90,7 @@ DJANGO_APPS = (
     'django.contrib.comments',
     'django.contrib.admin',
     'django.contrib.sitemaps',
+    'django.contrib.flatpages',
 )
 
 THIRD_PARTY_APPS = (
@@ -98,7 +99,6 @@ THIRD_PARTY_APPS = (
 
 LOCAL_APPS = (
     'blog',
-    'biodata',
     'widgets',
 )
 
