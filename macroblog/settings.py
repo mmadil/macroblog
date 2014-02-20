@@ -86,7 +86,6 @@ DJANGO_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.markup',
     'django.contrib.comments',
     'django.contrib.admin',
     'django.contrib.sitemaps',

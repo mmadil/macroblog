@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Tweet
+from .models import Post, Like
 
 class PostAdmin(admin.ModelAdmin):
     date_hierarchy = 'created_at'
@@ -11,9 +11,10 @@ class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ['title',]}
     search_fields = ['title','content']
 
-class TweetAdmin(admin.ModelAdmin):
+class LikeAdmin(admin.ModelAdmin):
     pass
 
+
 admin.site.register(Post, PostAdmin)
-admin.site.register(Tweet, TweetAdmin)
+admin.site.register(Like, LikeAdmin)
 
