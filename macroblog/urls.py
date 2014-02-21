@@ -11,7 +11,7 @@ from widgets.views import BookmarkListView
 urlpatterns = patterns('',
     url(r'^manage-site/', include(admin.site.urls)),
     url(r'^comments/', include('django.contrib.comments.urls')),
-    url(r'^thoughts/', include('blog.urls', namespace='blog')),
+    url(r'^posts/', include('blog.urls', namespace='blog')),
 )
 
 urlpatterns += patterns('',

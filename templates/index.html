@@ -27,19 +27,17 @@ few projects, blog posts, and rants
 {% endif %}
 <ul class="unstyled">
   {% for post in recent_posts %}
-  {% if post.published %}
   <li class="spacer-links">
   <h1><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h1>
-  <p>{{ post.description }}</p>
+  <p>{{ post.tease }}</p>
   </li>
-  {% endif %}
   {% empty %}
   <p class="text-center">
   Sorry, There is nothing to list here now.
   </p>
   {% endfor %}
 </ul>
-<h1 class="spacer">Good Reads</h1>
+<h1 class="spacer">Internet of things</h1>
 {% if bookmark_count > 2 %}
   <h4>Showing 2 links out of {{ bookmark_count }}.<span class="pull-right"><a href="/bookmarks/">View all</a></span></h4>
 {% else %}

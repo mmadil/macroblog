@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% load comments %}
-{% load markup %}
 
 {% block title %}{{ post.title }}{% endblock %}
 {% block description %}{{ post.description }}{% endblock %}
@@ -9,10 +8,10 @@
 {% block content %}
 <h1 class="text-center">{{ post.title }}</h1>
 <p class="text-center">
-<small>{{ post.updated_at }} - {{ post.author.get_full_name }}</small>
+<small>{{ post.modified }} - {{ post.author.get_full_name }}</small>
 </p>
 <div class="spacer"></div>
-<p>{{ post.content|markdown }}</p>
+{% autoescape off %}{{ post.content_html }}{% endautoescape %}
 <hr>
   <div class="row-fluid">
     <div class="span12">
