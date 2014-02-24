@@ -3,3 +3,4 @@
 *.db
 *.sqlite3
 macroblog/local_settings.py
+macroblog/auth_keys.py

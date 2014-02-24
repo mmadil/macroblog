@@ -100,9 +100,21 @@ LOCAL_APPS = (
     'blog',
     'widgets',
     'photoblog',
+    'comments'
 )
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
+
+COMMENTS_APP = 'comments'
+
+RECAPTCHA_USE_SSL = False
+RECAPTCHA_OPTIONS = {
+        'theme': 'white',
+        'lang': 'en',
+        'tabindex': 0,
+        }
+
+RECAPTCHA_VALIDATION_OVERRIDE = False
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
@@ -139,6 +151,11 @@ DATABASES = {'default': dj_database_url.config()}
 
 try:
     from local_settings import *
+except ImportError:
+    pass
+
+try:
+    from auth_keys import *
 except ImportError:
     pass
 

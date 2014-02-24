@@ -28,7 +28,6 @@
       {% if field.errors %}<p style="color:red">{{ field.errors }}</p>{% endif %}
         <div
           {% if field.errors %} class="alert alert-error"{% endif %}
-          {% ifequal field.name "honeypot" %} style="display:none;"{% endifequal %}>
           {{ field.label_tag }} {{ field }}
         </div>
       {% endif %}
