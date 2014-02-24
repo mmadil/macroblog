@@ -46,9 +46,10 @@ class Bookmark(models.Model):
     link = models.URLField('URL')
     tease = models.TextField('Teaser', blank=True, default='')
     status = models.PositiveIntegerField('Status', choices=STATUS_CHOICES, default=1)
+    categories = models.ManyToManyField(Category)
 
     class Meta:
-        ordering = ['-updated_at']
+        ordering = ('title',)
 
     def __unicode__(self):
         return self.title

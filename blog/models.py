@@ -31,7 +31,7 @@ class PublicPostManager(models.Manager):
 class Category(models.Model):
     """Category model for posts."""
     title = models.CharField('Title', max_length=100)
-    slug = models.SlugField(max_length=100, unique=True)
+    slug = models.SlugField(max_length=100, unique=True, blank=True, default='')
 
     class Meta:
         verbose_name = 'category'

@@ -13,14 +13,20 @@
 <div class="spacer"></div>
 {% autoescape off %}{{ post.content_html }}{% endautoescape %}
 <hr>
-  <div class="row-fluid">
-    <div class="span12">
-    {% if post.enable_comments %}
-    <h2>Comments </h2>
+{% if post.categories %}
+<p>Categories -
+{% for category in post.categories.all %}
+<small class="label label-info">{{ category }}</small>
+{% endfor %}
+</p>
+{% endif %}
+{% if post.enable_comments %}
+ <div class="row-fluid">
+  <div class="span12">
+    <p>Comments</p>
     {% render_comment_list for post %}
-    </div>
+  </div>
     {% get_comment_form for object as form %}
-    <h2>Add comment (with markdown support)</h2>
   <div class="span5">
   <form action="{% comment_form_target %}" method="POST">
     {% csrf_token %}
@@ -31,6 +37,6 @@
     <button type="submit" class="btn btn-primary"><i class="icon-white icon-cog"></i> Preview</button>
   </form>
   </div>
-  {% endif %}
-</div>
+ </div>
+{% endif %}
 {% endblock %}

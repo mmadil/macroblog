@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Quote, Bookmark
+from .models import Quote, Bookmark, Category
 
 class QuoteAdmin(admin.ModelAdmin):
     fields = ('quotation', 'quoted_by')
@@ -10,12 +10,11 @@ class QuoteAdmin(admin.ModelAdmin):
     search_fields = ['quoted_by', 'quotation']
 
 class BookmarkAdmin(admin.ModelAdmin):
-    fields = ('title', 'link', 'description')
-    list_display = ['show', 'title', 'link','updated_at']
-    list_display_links = ['title']
-    list_editable = ['show']
-    list_filter = ['show']
-    search_fields = ['title']
+    pass
+
+class CategoryAdmin(admin.ModelAdmin):
+    pass
 
 admin.site.register(Quote, QuoteAdmin)
+admin.site.register(Category, CategoryAdmin)
 admin.site.register(Bookmark, BookmarkAdmin)
