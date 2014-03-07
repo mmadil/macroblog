@@ -1,14 +1,17 @@
-# Rise
+# Macroblog
 
-This is the code that powers my blog [madil.in](http://madil.in)
+This is the source code to my blog - [madil.in](http://madil.in)
 
-Built using :
+# Apps
 
-+ Django 1.5.1
-+ Markdown
++ Blog
++ Photoblog
++ Bookmark manager
++ Quotes
 
+# Features
 
-# Branches
++ Works on Django 1.6
++ Custom commenting app with Google's Re-Captcha
++ Uses markdown with typogrify
 
-Branch [search](https://github.com/mmadil/macroblog/tree/search) has the
-search enabled version of this blog.
