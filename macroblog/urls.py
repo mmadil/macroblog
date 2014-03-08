@@ -6,7 +6,7 @@ admin.autodiscover()
 
 from . import views
 from .sitemaps import sitemaps
-from widgets.views import BookmarkListView
+from widgets.views import BookmarkListView, GalleryHome
 
 urlpatterns = patterns('',
     url(r'^manage-site/', include(admin.site.urls)),
@@ -20,6 +20,15 @@ urlpatterns += patterns('',
 )
 
 urlpatterns += patterns('',
+        url(r'^gallery/$', GalleryHome, name='gallery_home'),
+)
+
+urlpatterns += patterns('',
+        url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', { 'sitemaps': sitemaps}),
+)
+
+
+urlpatterns += patterns('',
         url(r'^robots\.txt$', TemplateView.as_view(template_name="robots.txt", content_type='text/plain')),
 #       url(r'favicon\.ico$', RedirectView.as_view(url='/static/img/favicon.ico')),
 )
@@ -28,6 +37,3 @@ urlpatterns += patterns('django.contrib.flatpages.views',
         url(r'^(?P<url>.*/)$', 'flatpage'),
 )
 
-urlpatterns += patterns('',
-        url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', { 'sitemaps': sitemaps}),
-)
