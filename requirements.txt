@@ -6,5 +6,6 @@ dj-database-url==0.2.1
 django-recaptcha-works==0.3.4
 gunicorn==0.17.4
 psycopg2==2.5
+ez_setup==0.9
 typogrify==2.0.3
 wsgiref==0.1.2
