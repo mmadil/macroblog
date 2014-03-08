@@ -6,7 +6,6 @@ dj-database-url==0.2.1
 django-recaptcha-works==0.3.4
 ez-setup==0.9
 gunicorn==0.17.4
-ipython==1.2.0
 psycopg2==2.5
 smartypants==1.8.3
 titlecase==0.5.1
