@@ -10,4 +10,4 @@ ez-setup==0.9
 smartypants==1.8.3
 titlecase==0.5.1
 typogrify==2.0.3
-
+django-recaptcha-works==0.3.4

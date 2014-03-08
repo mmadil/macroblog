@@ -1,19 +1,17 @@
 {% extends 'base.html' %}
 
-{% block title %} Thoughts {% endblock %}
+{% block title %} Blog {% endblock %}
 {% block description %}{% endblock %}
 
 {% block content %}
 <ul class="unstyled">
 {% for post in post_list %}
-	{% if post.published %}
 	<li>
 		<h1><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h1>
-    <p>{{ post.updated_at }} by {{ post.author.get_full_name }}</p>
-    <p>{{ post.description }}</p>
+    <p>{{ post.modified }} by {{ post.author.get_full_name }}</p>
+    <p>{{ post.tease }}</p>
 	  <div class="spacer-links"></div>
 	</li>
-	{% endif %}
 	{% empty %}
   <p class="text-center">
 	Sorry, There is nothing to list here no now. 

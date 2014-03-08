@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% load comments %}
-{% load markup %}
 
 {% block title %}{{ post.title }}{% endblock %}
 {% block description %}{{ post.description }}{% endblock %}
@@ -9,19 +8,25 @@
 {% block content %}
 <h1 class="text-center">{{ post.title }}</h1>
 <p class="text-center">
-<small>{{ post.updated_at }} - {{ post.author.get_full_name }}</small>
+<small>{{ post.modified }} - {{ post.author.get_full_name }}</small>
 </p>
 <div class="spacer"></div>
-<p>{{ post.content|markdown }}</p>
+{% autoescape off %}{{ post.content_html }}{% endautoescape %}
 <hr>
-  <div class="row-fluid">
-    <div class="span12">
-    {% if post.enable_comments %}
-    <h2>Comments </h2>
+{% if post.categories %}
+<p>Categories -
+{% for category in post.categories.all %}
+<small class="label label-info">{{ category }}</small>
+{% endfor %}
+</p>
+{% endif %}
+{% if post.enable_comments %}
+ <div class="row-fluid">
+  <div class="span12">
+    <p>Comments</p>
     {% render_comment_list for post %}
-    </div>
+  </div>
     {% get_comment_form for object as form %}
-    <h2>Add comment (with markdown support)</h2>
   <div class="span5">
   <form action="{% comment_form_target %}" method="POST">
     {% csrf_token %}
@@ -32,6 +37,6 @@
     <button type="submit" class="btn btn-primary"><i class="icon-white icon-cog"></i> Preview</button>
   </form>
   </div>
-  {% endif %}
-</div>
+ </div>
+{% endif %}
 {% endblock %}

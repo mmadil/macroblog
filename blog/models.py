@@ -1,9 +1,8 @@
 import datetime
 
-from django.contrib.auth.models import User
 from django.db import models
+from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
-from django.http.request import HttpRequest
 
 from markdown import markdown
 from typogrify.filters import typogrify
@@ -21,60 +20,78 @@ def markup(text):
             'smart_strong']))
 
 
-class PublishedPost(models.Manager):
-    def get_query_set(self):
-        return super(PublishedPost, self).get_query_set().filter(published=True)
-
-class Twitter(models.Manager):
-    def get_query_set(self):
-        pass
+class PublicPostManager(models.Manager):
+    """Returns published post that are not in the future"""
+    def published_post(self):
+        return self.get_query_set().filter(status__gte=2, publish__lte=datetime.datetime.now())
 
 # TODO
 # Create a model manager to get Likes count on posts
 
+class Category(models.Model):
+    """Category model for posts."""
+    title = models.CharField('Title', max_length=100)
+    slug = models.SlugField(max_length=100, unique=True, blank=True, default='')
+
+    class Meta:
+        verbose_name = 'category'
+        verbose_name_plural = 'categories'
+        ordering = ('title',)
+
+    def __unicode__(self):
+        return self.title
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('blog_category_detail', None, {'slug':self.slug})
+
+
 class Post(models.Model):
-    created_at = models.DateField(auto_now_add=True)
-    updated_at = models.DateField(auto_now=True)
-    title = models.CharField('Title',
-            help_text='',
-            max_length=255, unique=True)
+    """ Post model."""
+    STATUS_CHOICES = (
+            (1, 'Draft'),
+            (2, 'Public'),
+        )
+    title = models.CharField('Title', max_length=255, unique=True)
     slug = models.SlugField(max_length=255, blank=True, default='')
+    author = models.ForeignKey(User)
     content = models.TextField('Contents',
             help_text='Content of this post goes here.',
             blank=True, default='')
     content_html = models.TextField(editable=False, blank=True, default='')
-    description = models.TextField('Description', 
+    tease = models.TextField('teaser', 
             help_text='Description needed for "meta description".',
             blank=True, default='')
-    published = models.BooleanField('Publish',
-            help_text='Can I publish it ?',
-            default=False)
+    status = models.PositiveIntegerField('Status', choices=STATUS_CHOICES, default=1)
+    publish = models.DateTimeField('Publish', default=datetime.datetime.now)
+    created = models.DateField('Created', auto_now_add=True)
+    modified = models.DateField('Modified', auto_now=True)
+    categories = models.ManyToManyField(Category, blank=True)
     enable_comments = models.BooleanField('Comments',
             help_text='Should I enable comments for it ?',
             default=True)
-    author = models.ForeignKey(User)
 
     objects = models.Manager()
-    published_post = PublishedPost()
+    public_post = PublicPostManager()
 
     # TODO
     # get likes for posts
 
     class Meta:
-        ordering = ['-updated_at','title']
+        ordering = ['-publish']
 
     def __unicode__(self):
         return self.title
 
     def save(self, *args, **kwargs):
-        self.content_html = markup(self.body)
+        self.content_html = markup(self.content)
         if not self.slug:
             self.slug = slugify(self.title)
         super(Post, self).save(*args, **kwargs)
 
     @models.permalink
     def get_absolute_url(self):
-        return("blog:detail", (), {"slug":self.slug})
+        return('blog:detail', None, {'slug':self.slug})
 
 
 # TODO
@@ -82,7 +99,7 @@ class Post(models.Model):
 class Like(models.Model):
     liked_at = models.DateTimeField(auto_now_add=True)
     post = models.ForeignKey(Post)
-    liked_by = models.URLField(blank=True, null=True, unique=True)
+    liked_by = models.ForeignKey(User)
 
 
     class Meta:

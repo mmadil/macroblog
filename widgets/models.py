@@ -1,4 +1,5 @@
 from django.db import models
+from django.template.defaultfilters import slugify
 
 class Quote(models.Model):
     quotation = models.TextField('Quotation', max_length=255)
@@ -11,32 +12,45 @@ class Quote(models.Model):
     def __unicode__(self):
         return self.quotation
 
+
+class Category(models.Model):
+    """Categorizes bookmarks."""
+    title = models.CharField('Title', max_length=100)
+    slug = models.SlugField(max_length=100, unique=True)
+
+    class Meta:
+        verbose_name = 'category'
+        verbose_name_plural = 'categories'
+        ordering = ('title',)
+
+    def __unicode__(self):
+        return self.title
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super(Category, self).save(*args, **kwargs)
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('bookmark_category_detail', None, {'slug':self.slug})
+
+
 class Bookmark(models.Model):
-    created_at = models.DateField(auto_now_add=True, editable=False)
-    updated_at = models.DateField(auto_now=True, editable=False)
+    """Bookmark model for links."""
+    STATUS_CHOICES = (
+            (1,'Draft'),
+            (2,'Public'),
+        )
     title = models.CharField('Title', max_length=255)
     link = models.URLField('URL')
-    description = models.TextField('Description', max_length=255)
-    show = models.BooleanField('Display it ?', default=False)
+    tease = models.TextField('Teaser', blank=True, default='')
+    status = models.PositiveIntegerField('Status', choices=STATUS_CHOICES, default=1)
+    categories = models.ManyToManyField(Category)
 
     class Meta:
-        ordering = ['-updated_at']
+        ordering = ('title',)
 
     def __unicode__(self):
         return self.title
-
-class Gallery(models.Model):
-    created_at = models.DateField(auto_now_add=True, editable=False)
-    updated_at = models.DateField(auto_now=True, editable=False)
-    title = models.CharField('Title', max_length=255)
-    link = models.CharField('Name of the Image ?',max_length=50)
-    description = models.TextField('Description', max_length=255)
-    show = models.BooleanField('Display it ?', default=False)
-
-    class Meta:
-        ordering = ['-updated_at']
-
-    def __unicode__(self):
-        return self.title
-
 

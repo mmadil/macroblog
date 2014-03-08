@@ -1,20 +1,19 @@
 from django.contrib import admin
-from .models import Post, Like
+from .models import Post, Category, Like
 
 class PostAdmin(admin.ModelAdmin):
-    date_hierarchy = 'created_at'
-    fields = ('title','slug','description','content','published','enable_comments','author')
-    list_display = ['published','title', 'author', 'updated_at']
-    list_display_links = ['title']
-    list_editable = ['published']
-    list_filter = ['published', 'author']
+    date_hierarchy = 'created'
     prepopulated_fields = {'slug': ['title',]}
     search_fields = ['title','content']
+
+class CategoryAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ['title',]}
 
 class LikeAdmin(admin.ModelAdmin):
     pass
 
 
 admin.site.register(Post, PostAdmin)
+admin.site.register(Category, CategoryAdmin)
 admin.site.register(Like, LikeAdmin)
 

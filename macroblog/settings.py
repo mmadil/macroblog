@@ -29,7 +29,7 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-MEDIA_ROOT = root('uploads')
+MEDIA_ROOT = root('media')
 MEDIA_URL = ''
 
 STATIC_ROOT = root('static')
@@ -99,9 +99,22 @@ THIRD_PARTY_APPS = (
 LOCAL_APPS = (
     'blog',
     'widgets',
+    'photoblog',
+    'comments'
 )
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
+
+COMMENTS_APP = 'comments'
+
+RECAPTCHA_USE_SSL = False
+RECAPTCHA_OPTIONS = {
+        'theme': 'white',
+        'lang': 'en',
+        'tabindex': 0,
+        }
+
+RECAPTCHA_VALIDATION_OVERRIDE = False
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
@@ -141,7 +154,13 @@ try:
 except ImportError:
     pass
 
+try:
+    from auth_keys import *
+except ImportError:
+    pass
+
 if PRODUCTION:
     STATIC_URL = 'https://googledrive.com/host/0B-gIhJMz12BtMTFvY0lSSWF5S2s/'
 else:
     STATIC_URL = '/static/'
+
