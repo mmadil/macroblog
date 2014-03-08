@@ -1,8 +1,6 @@
 Django==1.6
 Markdown==2.4
 South==0.8.1
-titlecase==0.5.1
-ez-setup==0.9
 argparse==1.2.1
 dj-database-url==0.2.1
 smartypants==1.8.3
@@ -11,3 +9,5 @@ gunicorn==0.17.4
 psycopg2==2.5
 typogrify==2.0.3
 wsgiref==0.1.2
+ez-setup==0.9
+titlecase==0.5.1
