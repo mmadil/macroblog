@@ -10,8 +10,6 @@ root = lambda * x: os.path.join(os.path.abspath(PROJECT_ROOT), *x)
 
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
-PRODUCTION = True
-
 
 ADMINS = (
     ('Mohammad Adil', 'mmadil_14@yahoo.com'),
@@ -145,22 +143,15 @@ LOGGING = {
     }
 }
 
-import dj_database_url
-
-DATABASES = {'default': dj_database_url.config()}
-
 try:
     from local_settings import *
 except ImportError:
     pass
 
 try:
-    from auth_keys import *
+    from production import *
 except ImportError:
     pass
 
-if PRODUCTION:
-    STATIC_URL = 'https://googledrive.com/host/0B-gIhJMz12BtMTFvY0lSSWF5S2s/'
-else:
-    STATIC_URL = '/static/'
+STATIC_URL = '/static/'
 
