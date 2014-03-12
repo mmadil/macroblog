@@ -7,8 +7,8 @@ from widgets.models import Quote, Bookmark
 
 
 def IndexView(request):
-    recent_posts = Post.public_post.all().order_by('-publish')[:2]
-    post_count = Post.public_post.all().count()
+    recent_posts = Post.public_post.filter(status__gte=2).order_by('-publish')[:2]
+    post_count = Post.public_post.filter(status__gte=2).count()
     bookmarks = Bookmark.objects.filter(status__gte=2)[:2]
     bookmark_count = len(Bookmark.objects.filter(status__gte=2))
     all_quotation = Quote.objects.filter(use_it='True').values_list('quotation','quoted_by')
